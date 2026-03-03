@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creeper Clicker - Holzi1567</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-overworld">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Holzi1567</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="server-status.html">Server</a></li>
+        <li><a href="builds.html">Builds</a></li>
+        <li><a href="achievements.html">Erfolge</a></li>
+        <li><a href="pvp-tipps.html">PvP Tipps</a></li>
+        <li><a href="crafting.html">Crafting</a></li>
+        <li><a href="minigame.html" class="active">Minispiel</a></li>
+        <li><a href="inventar.html">Inventar</a></li>
+      </ul>
+      <div class="nav-controls">
+        <div class="theme-switcher">
+          <button class="nav-control-btn" id="themeToggle" title="Theme wechseln">🌍</button>
+          <div class="theme-dropdown" id="themeDropdown">
+            <button class="theme-option" data-theme="overworld">🌍 Overworld</button>
+            <button class="theme-option" data-theme="nether">🔥 Nether</button>
+            <button class="theme-option" data-theme="end">🔮 End</button>
+          </div>
+        </div>
+        <button class="nav-control-btn" id="soundToggle" title="Sound an/aus">🔇</button>
+        <button class="nav-control-btn" id="dayNightIndicator" title="Tageszeit">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="stars-container" id="starsContainer"></div>
+  <div class="particles-container" id="particlesContainer"></div>
+
+  <div class="floating-block floating-block-1"></div>
+  <div class="floating-block floating-block-2"></div>
+  <div class="floating-block floating-block-3"></div>
+
+  <div class="main-content">
+    <h1 class="page-title fade-in">Creeper Clicker</h1>
+    <div class="game-container fade-in fade-in-delay-1" id="gameContainer">
+      <div class="game-hud">
+        <div class="game-hearts" id="gameHearts">❤️❤️❤️</div>
+        <div class="game-score">Punkte: <span id="gameScore">0</span></div>
+        <div class="game-highscore">Rekord: <span id="gameHighscore">0</span></div>
+      </div>
+      <div class="game-field" id="gameField">
+        <div class="game-start-screen" id="startScreen">
+          <h2>Creeper Clicker!</h2>
+          <p style="font-size:10px;color:#AAA;text-align:center;padding:0 20px;">Klicke die Creeper weg, bevor sie explodieren!</p>
+          <button class="mc-btn mc-btn-primary" id="startBtn">Spiel starten</button>
+        </div>
+        <div class="game-over-screen" id="gameOverScreen" style="display:none;">
+          <h2>Game Over!</h2>
+          <p class="final-score">Punkte: <span id="finalScore">0</span></p>
+          <p style="font-size:9px;color:#AAA;">Rekord: <span id="finalHighscore">0</span></p>
+          <button class="mc-btn mc-btn-primary" id="restartBtn">Nochmal spielen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Gemacht mit ❤️ und ⛏️ von Holzi1567 | 2026</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/minigame.js"></script>
+</body>
+</html>

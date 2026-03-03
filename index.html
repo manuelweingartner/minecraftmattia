@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holzi1567 - Minecraft Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-overworld">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Holzi1567</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Start</a></li>
+        <li><a href="server-status.html">Server</a></li>
+        <li><a href="builds.html">Builds</a></li>
+        <li><a href="achievements.html">Erfolge</a></li>
+        <li><a href="pvp-tipps.html">PvP Tipps</a></li>
+        <li><a href="crafting.html">Crafting</a></li>
+        <li><a href="minigame.html">Minispiel</a></li>
+        <li><a href="inventar.html">Inventar</a></li>
+      </ul>
+      <div class="nav-controls">
+        <div class="theme-switcher">
+          <button class="nav-control-btn" id="themeToggle" title="Theme wechseln">🌍</button>
+          <div class="theme-dropdown" id="themeDropdown">
+            <button class="theme-option" data-theme="overworld">🌍 Overworld</button>
+            <button class="theme-option" data-theme="nether">🔥 Nether</button>
+            <button class="theme-option" data-theme="end">🔮 End</button>
+          </div>
+        </div>
+        <button class="nav-control-btn" id="soundToggle" title="Sound an/aus">🔇</button>
+        <button class="nav-control-btn" id="dayNightIndicator" title="Tageszeit">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="stars-container" id="starsContainer"></div>
+  <div class="particles-container" id="particlesContainer"></div>
+
+  <div class="floating-block floating-block-1"></div>
+  <div class="floating-block floating-block-2"></div>
+  <div class="floating-block floating-block-3"></div>
+
+  <div class="main-content">
+    <section class="hero fade-in">
+      <h1 class="hero-title">Holzi1567</h1>
+      <p class="hero-subtitle">Willkommen in meiner Welt!</p>
+      <img src="https://crafatar.com/renders/body/ceff4d7e01f6447b865f6b3c54391233?overlay&scale=6" alt="Holzi1567 Minecraft Skin" class="hero-skin" onerror="this.src='https://minotar.net/armor/body/Holzi1567/300.png'">
+    </section>
+
+    <div class="feature-grid">
+      <a href="server-status.html" class="feature-card fade-in fade-in-delay-1">
+        <span class="feature-card-icon">📡</span>
+        <h3>Server Status</h3>
+        <p>Schau ob deine Lieblingsserver online sind!</p>
+      </a>
+      <a href="builds.html" class="feature-card fade-in fade-in-delay-2">
+        <span class="feature-card-icon">🏗️</span>
+        <h3>Beste Builds</h3>
+        <p>Meine coolsten Minecraft Bauwerke</p>
+      </a>
+      <a href="minigame.html" class="feature-card fade-in fade-in-delay-3">
+        <span class="feature-card-icon">💥</span>
+        <h3>Creeper Clicker</h3>
+        <p>Wie viele Creeper schaffst du?</p>
+      </a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Gemacht mit ❤️ und ⛏️ von Holzi1567 | 2026</p>
+  </footer>
+
+  <div class="creeper-sneak" id="creeperSneak">
+    <div class="creeper-head" style="width:80px;height:80px;background:#4AA52E;position:relative;">
+      <div style="position:absolute;top:16px;left:12px;width:16px;height:16px;background:#1A1A1A;box-shadow:36px 0 0 #1A1A1A,10px 20px 0 #1A1A1A,26px 20px 0 #1A1A1A,14px 22px 0 #1A1A1A,18px 22px 0 #1A1A1A,22px 22px 0 #1A1A1A,10px 26px 0 #1A1A1A,14px 26px 0 #1A1A1A,22px 26px 0 #1A1A1A,26px 26px 0 #1A1A1A;"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

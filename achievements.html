@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erfolge - Holzi1567</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-overworld">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Holzi1567</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="server-status.html">Server</a></li>
+        <li><a href="builds.html">Builds</a></li>
+        <li><a href="achievements.html" class="active">Erfolge</a></li>
+        <li><a href="pvp-tipps.html">PvP Tipps</a></li>
+        <li><a href="crafting.html">Crafting</a></li>
+        <li><a href="minigame.html">Minispiel</a></li>
+        <li><a href="inventar.html">Inventar</a></li>
+      </ul>
+      <div class="nav-controls">
+        <div class="theme-switcher">
+          <button class="nav-control-btn" id="themeToggle" title="Theme wechseln">🌍</button>
+          <div class="theme-dropdown" id="themeDropdown">
+            <button class="theme-option" data-theme="overworld">🌍 Overworld</button>
+            <button class="theme-option" data-theme="nether">🔥 Nether</button>
+            <button class="theme-option" data-theme="end">🔮 End</button>
+          </div>
+        </div>
+        <button class="nav-control-btn" id="soundToggle" title="Sound an/aus">🔇</button>
+        <button class="nav-control-btn" id="dayNightIndicator" title="Tageszeit">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="stars-container" id="starsContainer"></div>
+  <div class="particles-container" id="particlesContainer"></div>
+
+  <div class="floating-block floating-block-1"></div>
+  <div class="floating-block floating-block-2"></div>
+  <div class="floating-block floating-block-3"></div>
+
+  <div class="main-content">
+    <h1 class="page-title fade-in">Minecraft Erfolge</h1>
+    <p class="page-subtitle fade-in fade-in-delay-1">Mattias Abenteuer-Fortschritt</p>
+
+    <div class="achievements-list">
+      <!-- Freigeschaltete Erfolge -->
+      <div class="achievement fade-in">
+        <div class="achievement-icon">⛏️</div>
+        <div class="achievement-info">
+          <h3>Steinzeit</h3>
+          <p>Baue Bruchstein mit einer Spitzhacke ab</p>
+        </div>
+      </div>
+      <div class="achievement fade-in">
+        <div class="achievement-icon">🪵</div>
+        <div class="achievement-info">
+          <h3>Erste Schritte</h3>
+          <p>Oeffne dein Inventar</p>
+        </div>
+      </div>
+      <div class="achievement fade-in">
+        <div class="achievement-icon">🗡️</div>
+        <div class="achievement-info">
+          <h3>Zeit zum Kaempfen!</h3>
+          <p>Stelle ein Schwert her</p>
+        </div>
+      </div>
+      <div class="achievement fade-in">
+        <div class="achievement-icon">🐄</div>
+        <div class="achievement-info">
+          <h3>Kuh-Tipp</h3>
+          <p>Ernte Leder</p>
+        </div>
+      </div>
+      <div class="achievement fade-in">
+        <div class="achievement-icon">🍖</div>
+        <div class="achievement-info">
+          <h3>Gedeckter Tisch</h3>
+          <p>Iss alles, was essbar ist</p>
+        </div>
+      </div>
+      <div class="achievement fade-in">
+        <div class="achievement-icon">💎</div>
+        <div class="achievement-info">
+          <h3>Diamanten!</h3>
+          <p>Finde Diamanten tief unter der Erde</p>
+        </div>
+      </div>
+      <div class="achievement fade-in">
+        <div class="achievement-icon">📖</div>
+        <div class="achievement-info">
+          <h3>Verzauberung</h3>
+          <p>Verzaubere einen Gegenstand am Zaubertisch</p>
+        </div>
+      </div>
+      <div class="achievement fade-in">
+        <div class="achievement-icon">🌋</div>
+        <div class="achievement-info">
+          <h3>Eis-Eimer-Challenge</h3>
+          <p>Forme Obsidian und baue ein Nether-Portal</p>
+        </div>
+      </div>
+      <div class="achievement fade-in">
+        <div class="achievement-icon">🔥</div>
+        <div class="achievement-info">
+          <h3>Ab in den Nether</h3>
+          <p>Betritt das Nether-Portal</p>
+        </div>
+      </div>
+      <div class="achievement fade-in">
+        <div class="achievement-icon">👻</div>
+        <div class="achievement-info">
+          <h3>Geisterjaeger:in</h3>
+          <p>Besiege einen Ghast im Nether</p>
+        </div>
+      </div>
+      <div class="achievement fade-in">
+        <div class="achievement-icon">⭐</div>
+        <div class="achievement-info">
+          <h3>Leuchtfeuer</h3>
+          <p>Aktiviere ein Leuchtfeuer mit voller Kraft</p>
+        </div>
+      </div>
+      <div class="achievement fade-in">
+        <div class="achievement-icon">🏹</div>
+        <div class="achievement-info">
+          <h3>Scharfschuetze</h3>
+          <p>Triff ein Ziel aus 50 Bloecken Entfernung</p>
+        </div>
+      </div>
+
+      <!-- Gesperrte Erfolge -->
+      <div class="achievement locked fade-in">
+        <div class="achievement-icon">🐉</div>
+        <div class="achievement-info">
+          <h3>Das Ende?</h3>
+          <p>Betritt das End-Portal</p>
+        </div>
+      </div>
+      <div class="achievement locked fade-in">
+        <div class="achievement-icon">🏆</div>
+        <div class="achievement-info">
+          <h3>Befreit das Ende</h3>
+          <p>Besiege den Enderdrachen</p>
+        </div>
+      </div>
+      <div class="achievement locked fade-in">
+        <div class="achievement-icon">🌍</div>
+        <div class="achievement-info">
+          <h3>Abenteuerzeit</h3>
+          <p>Entdecke alle Biome</p>
+        </div>
+      </div>
+      <div class="achievement locked fade-in">
+        <div class="achievement-icon">☠️</div>
+        <div class="achievement-info">
+          <h3>Withersturm</h3>
+          <p>Beschwore den Wither und besiege ihn</p>
+        </div>
+      </div>
+      <div class="achievement locked fade-in">
+        <div class="achievement-icon">🗺️</div>
+        <div class="achievement-info">
+          <h3>Kartograf:in</h3>
+          <p>Stelle eine Karte her und haenge sie auf</p>
+        </div>
+      </div>
+      <div class="achievement locked fade-in">
+        <div class="achievement-icon">🐝</div>
+        <div class="achievement-info">
+          <h3>Bienenfleissig</h3>
+          <p>Sammle Honig aus einem Bienenstock</p>
+        </div>
+      </div>
+      <div class="achievement locked fade-in">
+        <div class="achievement-icon">🎣</div>
+        <div class="achievement-info">
+          <h3>Meisterangler:in</h3>
+          <p>Fange einen Fisch</p>
+        </div>
+      </div>
+      <div class="achievement locked fade-in">
+        <div class="achievement-icon">🌈</div>
+        <div class="achievement-info">
+          <h3>Regenbogensammler:in</h3>
+          <p>Sammle alle 16 Farben Wolle</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Gemacht mit ❤️ und ⛏️ von Holzi1567 | 2026</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
