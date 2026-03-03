@@ -10,59 +10,42 @@ Statische Minecraft-themed Website fuer Mattia (Minecraft-Name: Holzi1567, UUID:
 
 ## Sprache & Konventionen
 - Gesamte Website auf Deutsch
-- Kein scharfes S (ß), immer "ss"
+- Kein scharfes S, immer "ss"
 - Gendern mit Doppelpunkt (z.B. "Spieler:innen")
-- Keine Gedankenstriche
 
 ## Dateistruktur
 ```
 /
 ├── index.html              (Startseite mit Hero, Skin, Feature-Cards)
 ├── server-status.html      (Live Server-Status: HugoSMP, GommeHD, OPSucht)
-├── builds.html             (Build-Showcase mit Platzhaltern)
-├── achievements.html       (20 Minecraft Erfolge, 12 freigeschaltet)
+├── achievements.html       (20 echte Minecraft Advancements)
 ├── pvp-tipps.html          (5 taeglich rotierende PvP-Tipps aus 50)
-├── crafting.html            (Interaktiver 3x3 Crafting-Rechner)
-├── minigame.html           (Creeper Clicker Spiel)
-├── inventar.html           (Minecraft Inventar-UI)
+├── minigame.html           (3 Minispiele: Quiz, Memory, Mob Jagd)
 ├── css/
-│   └── style.css           (Alle Styles, 3 Themes, responsive)
+│   └── style.css           (Alle Styles, 3 Themes, responsive, dunkles Design)
 ├── js/
 │   ├── main.js             (Navigation, Theme, Tag/Nacht, Sound, Easter Eggs)
 │   ├── server-status.js    (API-Abfrage mcsrvstat.us)
 │   ├── pvp-tipps.js        (50 Tipps, datumsbasierte Rotation)
-│   ├── crafting.js          (Crafting-Grid mit 26 Rezepten)
-│   ├── minigame.js         (Creeper Clicker Spiellogik)
-│   └── inventar.js         (Tooltip-Positionierung)
+│   └── minigame.js         (Quiz, Block Memory, Mob Jagd)
 └── CLAUDE.md
 ```
 
-## APIs
-- Skin-Render: Crafatar (https://crafatar.com) mit UUID ceff4d7e01f6447b865f6b3c54391233
-- Skin-Fallback: Minotar (https://minotar.net) mit Username Holzi1567
-- Server-Status: mcsrvstat.us API (https://api.mcsrvstat.us/3/{adresse})
-- Server-Icons: mcsrvstat.us (https://api.mcsrvstat.us/icon/{adresse})
+## Design
+- Dunkles Grunddesign mit guter Lesbarkeit
+- Helle Schrift auf dunklem Hintergrund
+- 3 Themes aenderbar ueber Dropdown im Header
 
 ## 3 Themes (localStorage gespeichert)
-1. **Overworld** (Standard): Gruen/Braun/Blau
-2. **Nether**: Rot/Orange/Dunkel mit Lava-Partikeln
-3. **End**: Lila/Gelb/Schwarz mit End-Partikeln
+1. **Overworld** (Standard): Gruen/Braun, dunkler Waldboden-Look
+2. **Nether**: Rot/Orange mit Lava-Partikeln
+3. **End**: Lila/Gelb mit schwebenden End-Partikeln
 
-## Tag/Nacht Zyklus
-- 06:00-18:00: Tagmodus (hell, Sonne)
-- 18:00-06:00: Nachtmodus (dunkler, Sterne, Mond)
+## 3 Minispiele
+1. **Minecraft Quiz**: 20 Multiple-Choice Fragen
+2. **Block Memory**: 4x4 Karten-Memory mit Minecraft-Bloecken
+3. **Mob Jagd**: Mobs erscheinen, verschiedene geben unterschiedliche Punkte
 
 ## Easter Eggs
-1. **Konami Code** (↑↑↓↓←→←→BA): Diamantenregen
-2. **Enderman** (builds.html): Teleportiert sich bei Hover
-3. **Creeper Sneak** (index.html): Nach 30s Inaktivitaet schleicht Creeper hoch
-
-## Server-Konfiguration
-- HugoSMP: hugosmp.net
-- GommeHD.net: gommehd.net
-- OPSucht.net: opsucht.net
-- Alle pruefen ob "Holzi1567" online ist
-
-## Sound
-- Synthetische Sounds via Web Audio API (kein externer Audio-File noetig)
-- Standard: aus (muss manuell aktiviert werden)
+1. Konami Code: Diamantenregen
+2. Creeper Sneak (index.html): Nach 30s Inaktivitaet

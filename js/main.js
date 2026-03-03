@@ -7,7 +7,7 @@
   'use strict';
 
   // ============================================
-  // Sound-System (Minecraft Klick-Sound als synthetischer Ton)
+  // Sound-System
   // ============================================
   let soundEnabled = false;
   let audioContext = null;
@@ -32,7 +32,7 @@
       gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.08);
       osc.start(audioContext.currentTime);
       osc.stop(audioContext.currentTime + 0.08);
-    } catch(e) { /* Sound-Fehler ignorieren */ }
+    } catch(e) {}
   }
 
   function playExplosionSound() {
@@ -52,10 +52,9 @@
       gain.gain.setValueAtTime(0.4, audioContext.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
       source.start(audioContext.currentTime);
-    } catch(e) { /* Sound-Fehler ignorieren */ }
+    } catch(e) {}
   }
 
-  // Sound-Funktionen global verfuegbar machen
   window.playClickSound = playClickSound;
   window.playExplosionSound = playExplosionSound;
 
@@ -72,7 +71,6 @@
       playClickSound();
     });
 
-    // Menu schliessen bei Klick auf Link
     navLinks.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
         hamburger.classList.remove('active');
@@ -83,24 +81,23 @@
   }
 
   // ============================================
-  // Theme System
+  // Theme System (komplett neu geschrieben)
   // ============================================
   const themeToggle = document.getElementById('themeToggle');
   const themeDropdown = document.getElementById('themeDropdown');
   const themeIcons = { overworld: '🌍', nether: '🔥', end: '🔮' };
 
   function setTheme(theme) {
-    document.body.className = document.body.className
-      .replace(/theme-\w+/g, '')
-      .trim();
+    // Alle Theme-Klassen entfernen
+    document.body.classList.remove('theme-overworld', 'theme-nether', 'theme-end');
+    // Neue Theme-Klasse setzen
     document.body.classList.add('theme-' + theme);
-
-    // Tag/Nacht Klasse beibehalten
-    updateDayNight();
 
     localStorage.setItem('mc-theme', theme);
     if (themeToggle) themeToggle.textContent = themeIcons[theme] || '🌍';
 
+    // Tag/Nacht beibehalten
+    updateDayNight();
     // Partikel aktualisieren
     updateParticles(theme);
   }
@@ -110,21 +107,32 @@
   setTheme(savedTheme);
 
   if (themeToggle && themeDropdown) {
+    // Toggle-Button: Dropdown oeffnen/schliessen
     themeToggle.addEventListener('click', function(e) {
+      e.preventDefault();
       e.stopPropagation();
       themeDropdown.classList.toggle('show');
       playClickSound();
     });
 
+    // Dropdown selbst: Klicks nicht nach aussen propagieren
+    themeDropdown.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+
+    // Theme-Optionen
     themeDropdown.querySelectorAll('.theme-option').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        setTheme(this.dataset.theme);
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var theme = this.getAttribute('data-theme');
+        setTheme(theme);
         themeDropdown.classList.remove('show');
         playClickSound();
       });
     });
 
-    // Dropdown schliessen bei Klick ausserhalb
+    // Dropdown schliessen bei Klick irgendwo anders
     document.addEventListener('click', function() {
       themeDropdown.classList.remove('show');
     });
@@ -134,13 +142,13 @@
   // Partikel-System
   // ============================================
   function updateParticles(theme) {
-    const container = document.getElementById('particlesContainer');
+    var container = document.getElementById('particlesContainer');
     if (!container) return;
     container.innerHTML = '';
 
     if (theme === 'nether') {
-      for (let i = 0; i < 15; i++) {
-        const p = document.createElement('div');
+      for (var i = 0; i < 15; i++) {
+        var p = document.createElement('div');
         p.className = 'lava-particle';
         p.style.left = Math.random() * 100 + '%';
         p.style.animationDelay = Math.random() * 4 + 's';
@@ -148,14 +156,14 @@
         container.appendChild(p);
       }
     } else if (theme === 'end') {
-      for (let i = 0; i < 20; i++) {
-        const p = document.createElement('div');
-        p.className = 'end-particle';
-        p.style.left = Math.random() * 100 + '%';
-        p.style.top = Math.random() * 100 + '%';
-        p.style.animationDelay = Math.random() * 6 + 's';
-        p.style.animationDuration = (4 + Math.random() * 4) + 's';
-        container.appendChild(p);
+      for (var j = 0; j < 20; j++) {
+        var q = document.createElement('div');
+        q.className = 'end-particle';
+        q.style.left = Math.random() * 100 + '%';
+        q.style.top = Math.random() * 100 + '%';
+        q.style.animationDelay = Math.random() * 6 + 's';
+        q.style.animationDuration = (4 + Math.random() * 4) + 's';
+        container.appendChild(q);
       }
     }
   }
@@ -163,12 +171,12 @@
   // ============================================
   // Tag/Nacht Zyklus
   // ============================================
-  const dayNightIndicator = document.getElementById('dayNightIndicator');
-  const starsContainer = document.getElementById('starsContainer');
+  var dayNightIndicator = document.getElementById('dayNightIndicator');
+  var starsContainer = document.getElementById('starsContainer');
 
   function updateDayNight() {
-    const hour = new Date().getHours();
-    const isNight = hour < 6 || hour >= 18;
+    var hour = new Date().getHours();
+    var isNight = hour < 6 || hour >= 18;
 
     if (isNight) {
       document.body.classList.add('night-mode');
@@ -183,26 +191,26 @@
 
   function generateStars() {
     if (!starsContainer || starsContainer.children.length > 0) return;
-    for (let i = 0; i < 50; i++) {
-      const star = document.createElement('div');
+    for (var i = 0; i < 50; i++) {
+      var star = document.createElement('div');
       star.className = 'star';
       star.style.left = Math.random() * 100 + '%';
       star.style.top = Math.random() * 60 + '%';
       star.style.animationDelay = Math.random() * 2 + 's';
-      star.style.width = (1 + Math.random() * 2) + 'px';
-      star.style.height = star.style.width;
+      var size = (1 + Math.random() * 2) + 'px';
+      star.style.width = size;
+      star.style.height = size;
       starsContainer.appendChild(star);
     }
   }
 
   updateDayNight();
-  // Alle 5 Minuten pruefen
   setInterval(updateDayNight, 300000);
 
   // ============================================
   // Sound Toggle
   // ============================================
-  const soundToggle = document.getElementById('soundToggle');
+  var soundToggle = document.getElementById('soundToggle');
   if (soundToggle) {
     soundToggle.addEventListener('click', function() {
       initAudio();
@@ -212,7 +220,6 @@
     });
   }
 
-  // Klick-Sound auf alle mc-btn und nav-links
   document.addEventListener('click', function(e) {
     if (e.target.closest('.mc-btn, .nav-links a, .feature-card')) {
       playClickSound();
@@ -220,10 +227,10 @@
   });
 
   // ============================================
-  // Easter Egg 1: Konami Code (Diamantenregen)
+  // Easter Egg 1: Konami Code
   // ============================================
-  const konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','KeyB','KeyA'];
-  let konamiIndex = 0;
+  var konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','KeyB','KeyA'];
+  var konamiIndex = 0;
 
   document.addEventListener('keydown', function(e) {
     if (e.code === konamiCode[konamiIndex]) {
@@ -238,28 +245,30 @@
   });
 
   function diamondRain() {
-    for (let i = 0; i < 30; i++) {
-      setTimeout(function() {
-        const diamond = document.createElement('div');
-        diamond.className = 'diamond-rain';
-        diamond.textContent = '💎';
-        diamond.style.left = Math.random() * 100 + 'vw';
-        diamond.style.animationDuration = (2 + Math.random() * 2) + 's';
-        diamond.style.fontSize = (16 + Math.random() * 24) + 'px';
-        document.body.appendChild(diamond);
-        setTimeout(function() { diamond.remove(); }, 4000);
-      }, i * 100);
+    for (var i = 0; i < 30; i++) {
+      (function(idx) {
+        setTimeout(function() {
+          var diamond = document.createElement('div');
+          diamond.className = 'diamond-rain';
+          diamond.textContent = '💎';
+          diamond.style.left = Math.random() * 100 + 'vw';
+          diamond.style.animationDuration = (2 + Math.random() * 2) + 's';
+          diamond.style.fontSize = (16 + Math.random() * 24) + 'px';
+          document.body.appendChild(diamond);
+          setTimeout(function() { diamond.remove(); }, 4000);
+        }, idx * 100);
+      })(i);
     }
   }
 
   // ============================================
   // Easter Egg 2: Enderman Teleport
   // ============================================
-  const enderman = document.getElementById('enderman');
+  var enderman = document.getElementById('enderman');
   if (enderman) {
     enderman.addEventListener('mouseenter', function() {
-      const maxX = window.innerWidth - 40;
-      const maxY = window.innerHeight - 40;
+      var maxX = window.innerWidth - 40;
+      var maxY = window.innerHeight - 40;
       enderman.style.left = Math.random() * maxX + 'px';
       enderman.style.top = (100 + Math.random() * maxY) + 'px';
       enderman.style.right = 'auto';
@@ -269,21 +278,20 @@
   // ============================================
   // Easter Egg 3: Creeper Sneak (Startseite)
   // ============================================
-  const creeperSneak = document.getElementById('creeperSneak');
+  var creeperSneak = document.getElementById('creeperSneak');
   if (creeperSneak) {
-    let idleTimer = null;
+    var idleTimer = null;
 
     function resetIdleTimer() {
       if (idleTimer) clearTimeout(idleTimer);
       creeperSneak.classList.remove('active');
-      // Entferne SSS Popup falls vorhanden
-      const existingPopup = document.querySelector('.sss-popup');
+      var existingPopup = document.querySelector('.sss-popup');
       if (existingPopup) existingPopup.remove();
 
       idleTimer = setTimeout(function() {
         creeperSneak.classList.add('active');
         setTimeout(function() {
-          const popup = document.createElement('div');
+          var popup = document.createElement('div');
           popup.className = 'sss-popup';
           popup.textContent = 'Sssssss...';
           document.body.appendChild(popup);
@@ -301,9 +309,7 @@
     resetIdleTimer();
   }
 
-  // ============================================
-  // Partikel beim Seitenstart laden
-  // ============================================
+  // Partikel beim Start laden
   updateParticles(savedTheme);
 
 })();

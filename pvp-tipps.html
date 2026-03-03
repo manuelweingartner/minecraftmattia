@@ -10,62 +10,45 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="theme-overworld">
-
-  <nav class="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Holzi1567</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Start</a></li>
-        <li><a href="server-status.html">Server</a></li>
-        <li><a href="builds.html">Builds</a></li>
-        <li><a href="achievements.html">Erfolge</a></li>
-        <li><a href="pvp-tipps.html" class="active">PvP Tipps</a></li>
-        <li><a href="crafting.html">Crafting</a></li>
-        <li><a href="minigame.html">Minispiel</a></li>
-        <li><a href="inventar.html">Inventar</a></li>
-      </ul>
-      <div class="nav-controls">
-        <div class="theme-switcher">
-          <button class="nav-control-btn" id="themeToggle" title="Theme wechseln">🌍</button>
-          <div class="theme-dropdown" id="themeDropdown">
-            <button class="theme-option" data-theme="overworld">🌍 Overworld</button>
-            <button class="theme-option" data-theme="nether">🔥 Nether</button>
-            <button class="theme-option" data-theme="end">🔮 End</button>
-          </div>
+  <nav class="navbar"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">Holzi1567</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="server-status.html">Server</a></li>
+      <li><a href="achievements.html">Erfolge</a></li>
+      <li><a href="pvp-tipps.html" class="active">PvP Tipps</a></li>
+      <li><a href="minigame.html">Minispiele</a></li>
+    </ul>
+    <div class="nav-controls">
+      <div class="theme-switcher">
+        <button class="nav-control-btn" id="themeToggle" title="Theme wechseln">🌍</button>
+        <div class="theme-dropdown" id="themeDropdown">
+          <button class="theme-option" data-theme="overworld">🌍 Overworld</button>
+          <button class="theme-option" data-theme="nether">🔥 Nether</button>
+          <button class="theme-option" data-theme="end">🔮 End</button>
         </div>
-        <button class="nav-control-btn" id="soundToggle" title="Sound an/aus">🔇</button>
-        <button class="nav-control-btn" id="dayNightIndicator" title="Tageszeit">☀️</button>
       </div>
+      <button class="nav-control-btn" id="soundToggle" title="Sound an/aus">🔇</button>
+      <button class="nav-control-btn" id="dayNightIndicator" title="Tageszeit">☀️</button>
     </div>
-  </nav>
-
+  </div></nav>
   <div class="stars-container" id="starsContainer"></div>
   <div class="particles-container" id="particlesContainer"></div>
-
   <div class="floating-block floating-block-1"></div>
   <div class="floating-block floating-block-2"></div>
   <div class="floating-block floating-block-3"></div>
-
   <div class="main-content">
     <div class="pvp-header fade-in">
       <h1 class="page-title">PvP Tipps des Tages</h1>
       <p class="pvp-date" id="pvpDate"></p>
     </div>
-    <div class="tips-grid" id="tipsGrid">
-      <!-- Wird von JS gefuellt -->
-    </div>
+    <div class="tips-grid" id="tipsGrid"></div>
     <div style="text-align:center;margin-top:24px;" class="fade-in fade-in-delay-4">
-      <p style="font-size:10px;color:var(--gold);">Morgen gibt es neue Tipps!</p>
+      <p style="font-size:11px;color:var(--gold);">Morgen gibt es neue Tipps!</p>
     </div>
   </div>
-
-  <footer class="site-footer">
-    <p>Gemacht mit ❤️ und ⛏️ von Holzi1567 | 2026</p>
-  </footer>
-
+  <footer class="site-footer"><p>Gemacht mit ❤️ und ⛏️ von Holzi1567 | 2026</p></footer>
   <script src="js/main.js"></script>
   <script src="js/pvp-tipps.js"></script>
 </body>
