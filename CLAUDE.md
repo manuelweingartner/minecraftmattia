@@ -24,7 +24,7 @@ Statische Minecraft-themed Website fuer Mattia (Minecraft-Name: Holzi1567, UUID:
 ├── css/
 │   └── style.css           (Alle Styles, 3 Themes, responsive, dunkles Design)
 ├── js/
-│   ├── main.js             (Navigation, Theme, Tag/Nacht, Sound, Easter Eggs)
+│   ├── main.js             (Navigation, Theme-Cycle, Tag/Nacht, Sound, Easter Eggs)
 │   ├── server-status.js    (API-Abfrage mcsrvstat.us)
 │   ├── pvp-tipps.js        (50 Tipps, datumsbasierte Rotation)
 │   └── minigame.js         (Quiz, Block Memory, Mob Jagd)
@@ -34,7 +34,7 @@ Statische Minecraft-themed Website fuer Mattia (Minecraft-Name: Holzi1567, UUID:
 ## Design
 - Dunkles Grunddesign mit guter Lesbarkeit
 - Helle Schrift auf dunklem Hintergrund
-- 3 Themes aenderbar ueber Dropdown im Header
+- 3 Themes aenderbar ueber Cycle-Button im Header (Klick = naechstes Theme)
 
 ## 3 Themes (localStorage gespeichert)
 1. **Overworld** (Standard): Gruen/Braun, dunkler Waldboden-Look

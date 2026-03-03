@@ -84,21 +84,15 @@
   // Theme System (komplett neu geschrieben)
   // ============================================
   const themeToggle = document.getElementById('themeToggle');
-  const themeDropdown = document.getElementById('themeDropdown');
+  const themeOrder = ['overworld', 'nether', 'end'];
   const themeIcons = { overworld: '🌍', nether: '🔥', end: '🔮' };
 
   function setTheme(theme) {
-    // Alle Theme-Klassen entfernen
     document.body.classList.remove('theme-overworld', 'theme-nether', 'theme-end');
-    // Neue Theme-Klasse setzen
     document.body.classList.add('theme-' + theme);
-
     localStorage.setItem('mc-theme', theme);
     if (themeToggle) themeToggle.textContent = themeIcons[theme] || '🌍';
-
-    // Tag/Nacht beibehalten
     updateDayNight();
-    // Partikel aktualisieren
     updateParticles(theme);
   }
 
@@ -106,35 +100,14 @@
   const savedTheme = localStorage.getItem('mc-theme') || 'overworld';
   setTheme(savedTheme);
 
-  if (themeToggle && themeDropdown) {
-    // Toggle-Button: Dropdown oeffnen/schliessen
-    themeToggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      themeDropdown.classList.toggle('show');
+  // Cycle-Button: Klick = naechstes Theme
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      var current = localStorage.getItem('mc-theme') || 'overworld';
+      var idx = themeOrder.indexOf(current);
+      var next = themeOrder[(idx + 1) % themeOrder.length];
+      setTheme(next);
       playClickSound();
-    });
-
-    // Dropdown selbst: Klicks nicht nach aussen propagieren
-    themeDropdown.addEventListener('click', function(e) {
-      e.stopPropagation();
-    });
-
-    // Theme-Optionen
-    themeDropdown.querySelectorAll('.theme-option').forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var theme = this.getAttribute('data-theme');
-        setTheme(theme);
-        themeDropdown.classList.remove('show');
-        playClickSound();
-      });
-    });
-
-    // Dropdown schliessen bei Klick irgendwo anders
-    document.addEventListener('click', function() {
-      themeDropdown.classList.remove('show');
     });
   }
 
