@@ -81,10 +81,10 @@
   }
 
   // ============================================
-  // Theme System (komplett neu geschrieben)
+  // Theme System (Dropdown)
   // ============================================
   const themeToggle = document.getElementById('themeToggle');
-  const themeOrder = ['overworld', 'nether', 'end'];
+  const themeDropdown = document.getElementById('themeDropdown');
   const themeIcons = { overworld: '🌍', nether: '🔥', end: '🔮' };
 
   function setTheme(theme) {
@@ -92,7 +92,6 @@
     document.body.classList.add('theme-' + theme);
     localStorage.setItem('mc-theme', theme);
     if (themeToggle) themeToggle.textContent = themeIcons[theme] || '🌍';
-    updateDayNight();
     updateParticles(theme);
   }
 
@@ -100,14 +99,27 @@
   const savedTheme = localStorage.getItem('mc-theme') || 'overworld';
   setTheme(savedTheme);
 
-  // Cycle-Button: Klick = naechstes Theme
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function() {
-      var current = localStorage.getItem('mc-theme') || 'overworld';
-      var idx = themeOrder.indexOf(current);
-      var next = themeOrder[(idx + 1) % themeOrder.length];
-      setTheme(next);
+  if (themeToggle && themeDropdown) {
+    themeToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      themeDropdown.classList.toggle('show');
       playClickSound();
+    });
+
+    themeDropdown.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+
+    themeDropdown.querySelectorAll('.theme-option').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        setTheme(this.getAttribute('data-theme'));
+        themeDropdown.classList.remove('show');
+        playClickSound();
+      });
+    });
+
+    document.addEventListener('click', function() {
+      themeDropdown.classList.remove('show');
     });
   }
 
@@ -140,45 +152,6 @@
       }
     }
   }
-
-  // ============================================
-  // Tag/Nacht Zyklus
-  // ============================================
-  var dayNightIndicator = document.getElementById('dayNightIndicator');
-  var starsContainer = document.getElementById('starsContainer');
-
-  function updateDayNight() {
-    var hour = new Date().getHours();
-    var isNight = hour < 6 || hour >= 18;
-
-    if (isNight) {
-      document.body.classList.add('night-mode');
-      if (dayNightIndicator) dayNightIndicator.textContent = '🌙';
-      generateStars();
-    } else {
-      document.body.classList.remove('night-mode');
-      if (dayNightIndicator) dayNightIndicator.textContent = '☀️';
-      if (starsContainer) starsContainer.innerHTML = '';
-    }
-  }
-
-  function generateStars() {
-    if (!starsContainer || starsContainer.children.length > 0) return;
-    for (var i = 0; i < 50; i++) {
-      var star = document.createElement('div');
-      star.className = 'star';
-      star.style.left = Math.random() * 100 + '%';
-      star.style.top = Math.random() * 60 + '%';
-      star.style.animationDelay = Math.random() * 2 + 's';
-      var size = (1 + Math.random() * 2) + 'px';
-      star.style.width = size;
-      star.style.height = size;
-      starsContainer.appendChild(star);
-    }
-  }
-
-  updateDayNight();
-  setInterval(updateDayNight, 300000);
 
   // ============================================
   // Sound Toggle

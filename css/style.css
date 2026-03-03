@@ -215,7 +215,6 @@ body.theme-end .end-particle {
   left: 0;
   width: 100%;
   background: var(--nav-bg);
-  backdrop-filter: blur(8px);
   z-index: 1000;
   border-bottom: 4px solid var(--primary);
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);

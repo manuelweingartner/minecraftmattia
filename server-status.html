@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body class="theme-overworld">
   <nav class="navbar"><div class="nav-inner">
@@ -21,12 +21,17 @@
       <li><a href="minigame.html">Minispiele</a></li>
     </ul>
     <div class="nav-controls">
-      <button class="nav-control-btn" id="themeToggle" title="Theme wechseln">🌍</button>
+      <div class="theme-switcher">
+        <button class="nav-control-btn" id="themeToggle" title="Theme wechseln">🌍</button>
+        <div class="theme-dropdown" id="themeDropdown">
+          <button class="theme-option" data-theme="overworld">🌍 Overworld</button>
+          <button class="theme-option" data-theme="nether">🔥 Nether</button>
+          <button class="theme-option" data-theme="end">🔮 End</button>
+        </div>
+      </div>
       <button class="nav-control-btn" id="soundToggle" title="Sound an/aus">🔇</button>
-      <button class="nav-control-btn" id="dayNightIndicator" title="Tageszeit">☀️</button>
     </div>
   </div></nav>
-  <div class="stars-container" id="starsContainer"></div>
   <div class="particles-container" id="particlesContainer"></div>
   <div class="floating-block floating-block-1"></div>
   <div class="floating-block floating-block-2"></div>
@@ -41,7 +46,7 @@
     </div>
   </div>
   <footer class="site-footer"><p>Gemacht mit ❤️ und ⛏️ von Holzi1567 | 2026</p></footer>
-  <script src="js/main.js?v=3"></script>
-  <script src="js/server-status.js?v=3"></script>
+  <script src="js/main.js?v=4"></script>
+  <script src="js/server-status.js?v=4"></script>
 </body>
 </html>
